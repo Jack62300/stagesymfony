@@ -76,7 +76,7 @@ if ($_POST) {
         $errors['message'] = 'veuillez renseignez le champ message';
     }
     else {
-        $firstname = $_POST['message'];
+        $message = $_POST['message'];
     }
 
     // verification de la categorie
@@ -84,7 +84,7 @@ if ($_POST) {
         $errors['categorie'] = 'veuillez renseignez le champ catégorie';
     }
     else {
-        $firstname = $_POST['categorie'];
+        $categorie = $_POST['categorie'];
     }
     /********************************/
     if (!$errors) {
