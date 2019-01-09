@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ma super Page</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+            <div class="container">
+                    <h2>Demande stage</h2>
+                    <p>Forumaire de contact avec jointure à l'envoi , lier au catégorie .</p>
+                <form class="form-inline" method="post">
+                   
+                    <div class="input-group">
+                    <input class="form-control {% if errors.lastname is defined %} is-invalid {% endif %}" type="text" name="lastname" placeholder="Votre Nom" value="">
+                        
+                    {% if errors.lastname is defined %}<div class="invalid-feedback">{{ errors.lastname }}</div>{% endif %}
+                          
+                        
+                    <input class="form-control {% if errors.firstname is defined %} is-invalid {% endif %}" type="text" name="firstname" placeholder="Votre prénom">
+                   
+                    {% if errors.firstname is defined %}<div class="invalid-feedback">{{ errors.firstname }}</div>{% endif %}
+                    
+                    <input class="form-control {% if errors.email is defined %} is-invalid {% endif %}" type="email" name="email" placeholder="monemail@mondomaine.tld">
+                    
+                    {% if errors.email is defined %}<div class="invalid-feedback">{{ errors.email }}</div>{% endif %}
+
+                    <textarea class="form-control {% if errors.message is defined %} is-invalid {% endif %}" name="message" placeholder="Votre demande ici" rows="10" cols="100"></textarea>
+                   
+                    {% if errors.message is defined %}<div class="invalid-feedback">{{ errors.message }}</div>{% endif %}
+                   
+                    <select class="form-control {% if errors.categorie is defined %} is-invalid {% endif %}" name="categorie">
+                        {% for item in categorie %}
+                        
+                        <option value="{{ item.id }}">{{ item.name }}</option>
+                            
+                        {% endfor %}
+                    </select>
+
+                    {% if errors.categorie is defined %}<div class="invalid-feedback">{{ errors.categorie }}</div>{% endif %}
+                    
+                    </div>
+                    <button class="btn btn-primary">Validate</button>
+                </form>
+
+            </div>
+       
+    </body>
+</html>
+
+
+
